@@ -42,11 +42,11 @@ public class ProductManagerTest {
 
     @Test
     public void shouldRemoveNoneExistProductById() {
-        manager.removeById(9);
+        assertThrows(NotFoundException.class, () -> manager.removeById(9));
     }
 
     @Test
     public void shouldRemoveNoneExist2ProductById() {
-        manager.removeById(0);
+        assertThrows(NotFoundException.class, () -> manager.removeById(0));
     }
 }

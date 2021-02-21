@@ -1,6 +1,7 @@
 package ru.netology.repository;
 
 import ru.netology.domain.Product;
+import ru.netology.manager.NotFoundException;
 
 public class RepositoryProduct {
 
@@ -30,7 +31,7 @@ public class RepositoryProduct {
                 return item;
             }
         }
-        return null;
+        throw new NotFoundException("Element with id: " + id + " not found");
     }
 
     public void removeById(int id) {

@@ -22,15 +22,7 @@ public class ProductManager {
     }
 
     public void removeById(int id) {
-
-        try {
             repository.findById(id);
             repository.removeById(id);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Element with id: " + id + " not found");
-            e.printStackTrace();
-        }
-
     }
-
 }
