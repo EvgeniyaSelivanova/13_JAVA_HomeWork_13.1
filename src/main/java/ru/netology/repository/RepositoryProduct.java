@@ -31,19 +31,23 @@ public class RepositoryProduct {
                 return item;
             }
         }
-        throw new NotFoundException("Element with id: " + id + " not found");
+        return null;
     }
 
     public void removeById(int id) {
         int length = items.length - 1;
         Product[] tmp = new Product[length];
-        int index = 0;
-        for (Product item : items) {
-            if (item.getId() != id) {
-                tmp[index] = item;
-                index++;
+        if (findById(id) != null) {
+            int index = 0;
+            for (Product item : items) {
+                if (item.getId() != id) {
+                    tmp[index] = item;
+                    index++;
+                }
             }
+            items = tmp;
+        } else {
+            throw new NotFoundException("Element with id: " + id + " not found");
         }
-        items = tmp;
     }
 }

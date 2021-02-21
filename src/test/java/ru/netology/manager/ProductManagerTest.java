@@ -34,10 +34,7 @@ public class ProductManagerTest {
 
     @Test
     public void shouldRemoveExistProductById() {
-        manager.removeById(8);
-        Product[] actual = manager.getAll();
-        Product[] expected = new Product[]{firstBookTShirt, thirdTShirt, secondTShirt, firstTShirt, thirdBook, secondBook, firstBook};
-        assertArrayEquals(expected, actual);
+        assertDoesNotThrow(() -> manager.removeById(8));
     }
 
     @Test

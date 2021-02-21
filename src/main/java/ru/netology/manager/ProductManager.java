@@ -17,12 +17,7 @@ public class ProductManager {
         repository.save(item);
     }
 
-    public Product[] getAll() {
-        return repository.getAll();
-    }
-
     public void removeById(int id) {
-            repository.findById(id);
             repository.removeById(id);
     }
 }
